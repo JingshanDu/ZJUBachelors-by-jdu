@@ -1,0 +1,11 @@
+\ttl@change@i {\@ne }{chapter}{0em}{}{Chapter \thecontentslabel .\quad }{\hspace {0em}}{\titlerule *[10pt]{.}\contentspage }\relax 
+\ttl@change@v {chapter}{}{}{}\relax 
+\ttl@change@i {\@ne }{section}{4.0em}{}{\contentslabel {2.0em}}{\hspace {3em}}{\titlerule *[10pt]{.}\contentspage }\relax 
+\ttl@change@v {section}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsection}{8.0em}{}{\contentslabel {4.0em}}{\hspace {3em}}{\titlerule *[10pt]{.}\contentspage }\relax 
+\ttl@change@v {subsection}{}{}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Already main text??!}{1}{section.1.1}
+\contentsline {chapter}{References}{3}{section*.6}
+\contentsline {chapter}{Acknowledgments}{5}{chapter*.8}
+\contentsfinish 

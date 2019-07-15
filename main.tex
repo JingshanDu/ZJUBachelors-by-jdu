@@ -1,0 +1,204 @@
+% This is A English TeX Template for Thesis to be submitted to Zhejiang University for Bachelor's Degree.
+% This template is licensed under the GNU General Public License, version 2 (GPL v2), which can be obtained at http://www.gnu.org/licenses/gpl-2.0.html
+% The format generally accords with the formatting requirement of ZJU Dept Mat Sci Eng. For a complete list of changes please refer to the ReadMe file.
+% Part of the formatting codes are modified from naoz's template for College of EE.
+
+% To Start, compile with XeLaTex in order to handle UTF characters (chinese)
+
+\documentclass[a4paper,twoside,12pt]{book}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm]{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fontspec}
+\usepackage{hyperref}
+\usepackage{cleveref}
+%\usepackage{achemso}
+\usepackage[square,numbers,super,sort&compress]{natbib}
+\usepackage{mhchem}
+\usepackage{pdfpages}
+\usepackage{gensymb}
+\usepackage{xspace}
+\usepackage[labelsep=space,font=small,labelfont=bf]{caption}
+
+% Font family and size; Chinese bold
+% Works on Windows with TeX Live (MikTeX)
+% Check fonts installation and license first
+\newcommand{\song}{\fontspec{SimSun}\selectfont}
+\newcommand{\songb}{\fontspec{SimSun:embolden=4}\selectfont}
+\newcommand{\fs}{\fontspec{FangSong}\selectfont}
+\newcommand{\fsb}{\fontspec{FangSong:embolden=4}\selectfont}
+\newcommand{\tnr}{\fontspec{Times New Roman}\selectfont}
+\setmainfont{Times New Roman}
+
+\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
+\newcommand{\xiaochu}{\fontsize{36pt}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{26pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoyi}{\fontsize{24pt}{\baselineskip}\selectfont}
+\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoer}{\fontsize{18pt}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosan}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosi}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowu}{\fontsize{9pt}{\baselineskip}\selectfont}
+\newcommand{\liuhao}{\fontsize{7.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaoliu}{\fontsize{6.5pt}{\baselineskip}\selectfont}
+\newcommand{\qihao}{\fontsize{5.5pt}{\baselineskip}\selectfont}
+\newcommand{\bahao}{\fontsize{5pt}{\baselineskip}\selectfont}
+
+\onehalfspace
+
+% Latin words
+\newcommand{\etal}{\textit{et al.}\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\ca}{\textit{ca.}\xspace}
+\newcommand{\insitu}{\textit{in-situ}\xspace}
+
+\newcommand\reaction[1]{\begin{equation}\ce{#1}\end{equation}}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+
+% chapter title rules
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+	%\thispagestyle{empty}% original style: plain
+	\global\@topnum\z@
+	\@afterindentfalse
+	\secdef\@chapter\@schapter}
+\makeatother
+
+% blank page rules
+\makeatletter
+\def\cleardoublepage{\clearpage%
+	\if@twoside
+	\ifodd\c@page\else
+	\vspace*{\fill}
+	\hfill
+	\begin{center}
+		[This page intentionally left blank]
+	\end{center}
+	\vspace{\fill}
+%	\thispagestyle{empty}
+	\newpage
+	\if@twocolumn\hbox{}\newpage\fi
+	\fi
+	\fi
+}
+\makeatother
+
+
+\begin{document}
+	%==================================================
+	%                   Settings
+	%==================================================
+	% page styles
+	\fancypagestyle{main}{ %
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0.5pt}
+		\fancyhead[EC]{\xiaowu\fontspec{SimSun}\selectfont{浙江大学学士学位论文}}
+		\fancyhead[OC]{\xiaowu \leftmark}
+		\fancyfoot[OR]{\xiaowu\arabic{page}}
+		\fancyfoot[EL]{\xiaowu\arabic{page}}
+		}
+	
+	% Make subscript in equations in regular type rather than italic, enable if needed 
+	% \let\sb=_ \catcode`\_=\active \def_#1{\ensuremath \sb{\rm#1}}
+	
+	% Change the label of Figures and Tables, enable if needed (e.g., change to Chinese)
+%	\renewcommand{\thefigure}{\textbf{\thechapter.\arabic{figure}}} 
+%	\renewcommand{\figurename}{\textbf{Figure}}
+%	\renewcommand{\thetable}{\textbf{\thesection.\arabic{table}}} 
+%	\renewcommand{\tablename}{\textbf{Table}}
+	
+	% Headings
+	\titleformat{\chapter}%
+	  {\center\Large\bfseries\sanhao}{Chapter \thechapter}{1em}{}{}
+	\titlespacing{\chapter}%
+	  {0pt}{0pt}{18pt}
+	\titlecontents{chapter}[0em]{}%
+	{Chapter \thecontentslabel.\quad}{\hspace{0em}}{\titlerule*[10pt]{.}\contentspage}
+	
+	\titleformat{\section}[hang]%
+	{\large\bfseries\sihao}{\thesection}{1em}{}{}
+	\titlespacing{\section}%
+	  {0pt}{24pt}{6pt}
+	\titlecontents{section}[4.0em]{}%
+	  {\contentslabel{2.0em}}{\hspace{3em}}{\titlerule*[10pt]{.}\contentspage}
+	
+	\titleformat{\subsection}[hang]%
+	  {\sihao\bfseries\xiaosi}{\thesubsection}{1em}{}{}
+	\titlespacing{\subsection}%
+	  {0pt}{12pt}{6pt}
+	\titlecontents{subsection}[8.0em]{}%
+	  {\contentslabel{4.0em}}{\hspace{3em}}{\titlerule*[10pt]{.}\contentspage}
+	
+	
+	
+	%==================================================
+	%            Title, abstract and contents
+	%==================================================
+	%==Title==
+	\input{data/title.tex}
+		
+	\pagestyle{main}
+	\fancyfoot[OR]{\xiaowu\Roman{page}} 
+	\fancyfoot[EL]{\xiaowu\Roman{page}} 
+	\setcounter{page}{1}
+	
+	%==Abstract==
+	\chapter*{Abstract\markboth{ABSTRACT}{}}
+	\fontsize{12pt}{20pt}
+	\input{data/abstract}
+	
+	%==Abstract CN==
+	\chapter*{\fsb 摘~要\markboth{\xiaowu \song 摘~要}{}}
+	\fontsize{12pt}{20pt}
+	{
+	\fs \XeTeXlinebreaklocale "zh" \XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+	\parindent 2em
+	\input{data/abstractCN}
+	}
+	\cleardoublepage
+	
+	%==TOC==
+	\pagestyle{empty}
+	\tableofcontents
+	\listoffigures
+	%\listoftables
+	\cleardoublepage
+
+	
+	
+	%==================================================
+	%                   Main Body
+	%==================================================
+	\pagestyle{main}
+
+	\setcounter{page}{1}
+	\input{data/chapter1}
+
+
+	%==References==
+	\cleardoublepage
+	\phantomsection
+	\renewcommand{\bibname}{References}
+	\addcontentsline{toc}{chapter}{References}
+	
+	% Install if needed: https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style
+	\bibliographystyle{gbt7714-2005}
+	\setlength\bibsep{0pt}
+	\bibliography{bib/ref}
+	
+	\cleardoublepage
+	
+		%==Acknowledgements==
+		\chapter*{Acknowledgments\markboth{ACKNOWLEDGMENTS}{}}
+		\addcontentsline{toc}{chapter}{Acknowledgments}
+		\input{data/ack}
+		\cleardoublepage
+\end{document}
